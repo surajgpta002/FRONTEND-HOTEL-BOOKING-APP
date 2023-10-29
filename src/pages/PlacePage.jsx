@@ -16,7 +16,10 @@ export default function PlacePage() {
         if (!id) {
             return;
         }
-        axios.get(`/places/${id}`).then(response => {
+        axios.get(`/places/${id}`,{
+            headers: {
+               "Access-Control-Allow-Origin" : "*"
+            }}).then(response => {
             setPlace(response.data);
         })
     }, [id])

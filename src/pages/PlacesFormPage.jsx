@@ -73,7 +73,10 @@ export default function PlacesFormPage() {
 
         if (id) {
             //update
-            await axios.put('/places', {
+            await axios.put('/places',{
+                headers: {
+                   "Access-Control-Allow-Origin" : "*"
+                }}, {
                 id, ...placeData
 
             });
@@ -81,7 +84,10 @@ export default function PlacesFormPage() {
 
         } else {
             //new places
-            await axios.post('/places', placeData);
+            await axios.post('/places',{
+                headers: {
+                   "Access-Control-Allow-Origin" : "*"
+                }}, placeData);
             setRedirect(true);
         }
 

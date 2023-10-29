@@ -15,7 +15,10 @@ export default function AccountPage() {
     }
 
     async function logout() {
-        await axios.post('/logout');
+        await axios.post('/logout',{
+            headers: {
+               "Access-Control-Allow-Origin" : "*"
+            }});
         setRedirect('/');
         setUser(null);
 

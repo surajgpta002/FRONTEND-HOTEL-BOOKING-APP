@@ -13,7 +13,10 @@ export default function LoginPage() {
         ev.preventDefault();
 
         try {
-            const { data } = await axios.post('/login', { email, password });
+            const { data } = await axios.post('/login',{
+                headers: {
+                   "Access-Control-Allow-Origin" : "*"
+                }}, { email, password });
             setUser(data);
             alert("login Successfull");
             setRedirect(true);

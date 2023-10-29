@@ -29,7 +29,10 @@ export default function BookingWidget({ place }) {
 
     async function bookthisPlace() {
 
-        const response = await axios.post('/bookings', {
+        const response = await axios.post('/bookings',{
+            headers: {
+               "Access-Control-Allow-Origin" : "*"
+            }}, {
             checkIn, checkOut,
             numberOfGuests, name, phone,
             place: place._id,

@@ -10,7 +10,10 @@ export default function BookingsPage() {
     const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
-        axios.get('/bookings').then(response => {
+        axios.get('/bookings',{
+            headers: {
+               "Access-Control-Allow-Origin" : "*"
+            }}).then(response => {
             setBookings(response.data);
         });
     }, []);

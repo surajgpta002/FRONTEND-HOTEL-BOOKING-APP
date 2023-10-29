@@ -14,7 +14,10 @@ export default function BookingPage() {
     const [booking, setBooking] = useState(null);
     useEffect(() => {
         if (id) {
-            axios.get('/bookings').then(response => {
+            axios.get('/bookings',{
+                headers: {
+                   "Access-Control-Allow-Origin" : "*"
+                }}).then(response => {
                 const foundBooking = response.data.find(({ _id }) => _id === id);
                 if (foundBooking) {
                     setBooking(foundBooking);

@@ -10,7 +10,10 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
 
     async function addPhotoByLink(ev) {
         ev.preventDefault();
-        const { data: filename } = await axios.post('/upload-by-link', { link: photoLink });
+        const { data: filename } = await axios.post('/upload-by-link',{
+            headers: {
+               "Access-Control-Allow-Origin" : "*"
+            }}, { link: photoLink });
 
         onChange(prev => {
             return [...prev, filename];

@@ -8,7 +8,10 @@ import PlaceImg from "../PlaceImg";
 export default function PlacesPage() {
     const [places, setPlaces] = useState([]);
     useEffect(() => {
-        axios.get('/user-places').then(({ data }) => {
+        axios.get('/user-places',{
+            headers: {
+               "Access-Control-Allow-Origin" : "*"
+            }}).then(({ data }) => {
             setPlaces(data);
         });
     }, []);
